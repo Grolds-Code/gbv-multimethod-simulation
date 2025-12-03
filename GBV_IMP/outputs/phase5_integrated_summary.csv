@@ -1,0 +1,5 @@
+Analysis_Phase,Key_Finding,Method,N_Cases
+Phase 1: Descriptive,GBV Prevalence: 26.9%,Cross-sectional survey analysis,3000
+Phase 2: Random Forest,Model Accuracy: 74.6% | Top Predictor: partner_alcohol,"Machine Learning (500 trees, 70/30 split)",3000
+Phase 3: Logistic Regression,Strongest Risk Factor: partner_alcohol (OR = 6.60),Multivariable logistic regression (ecological model),3000
+Phase 4: Mediation Analysis,Significant Pathways: 0 of 3 tested,Mediation analysis with bootstrap (1000 sims),3000
