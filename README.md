@@ -6,7 +6,7 @@ R code for simulating and analyzing GBV data using multi-phase ecological framew
 ##  Overview
 This repository contains all R code to reproduce the simulation and analyses from the study:
 
-> **"Developing an Integrated Analytical Framework for Gender-Based Violence Research: A Simulation-Based Methodological Study"**  
+> **"Developing an Integrated Analytical Framework for Gender-Based Violence Research: A Simulation Study Integrating Machine Learning and Causal Inference"**  
 > *Grold Otieno Mboya*
 
 The study implements a five-phase analytical framework integrating machine learning, causal inference, and mediation analysis within an ecological model of GBV.
