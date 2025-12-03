@@ -1,9 +1,0 @@
-variable,correlation,abs_correlation,significant
-partner_alcohol,0.385,0.385,Yes
-marital_conflict,0.111,0.111,Yes
-childhood_trauma,0.105,0.105,Yes
-community_patriarchy,0.084,0.084,Yes
-decision_power,-0.046,0.046,No
-legal_implementation,-0.044,0.044,No
-mental_health_score,0.033,0.033,No
-age,-0.01,0.01,No
