@@ -1,0 +1,26 @@
+{
+    "id": "CFC4E066",
+    "path": "C:/USAGE/MSc EpBst/GBV_IMP/scripts/03_causal_inference_logistic_regression.R",
+    "project_path": "scripts/03_causal_inference_logistic_regression.R",
+    "type": "r_source",
+    "hash": "2756158825",
+    "contents": "",
+    "dirty": false,
+    "created": 1764765452811.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "407,72",
+        "scrollLine": "401"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1764753166,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1764753166,
+    "read_only": false,
+    "read_only_alternatives": []
+}

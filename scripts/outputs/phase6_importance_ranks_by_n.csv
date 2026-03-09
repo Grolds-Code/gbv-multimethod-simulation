@@ -1,0 +1,13 @@
+"Variable","N_500","N_1000","N_3000","N_5000"
+"partner_alcohol_factor",1,1,1,1
+"childhood_trauma_factor",8,4,2,2
+"Marital Conflict",2,2,3,3
+"Community Patriarchy",3,7,4,4
+"Legal Implementation",5,11,5,7
+"Distance to Services",4,6,6,11
+"Decision-Making Power",10,5,7,5
+"Higher Wealth",7,12,8,10
+"Age (centred)",6,9,9,9
+"Mental Health Score",11,3,10,6
+"Communication Score",9,10,11,8
+"Higher Education",12,8,12,12

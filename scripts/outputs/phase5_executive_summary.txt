@@ -1,0 +1,738 @@
+Sample Size: 3000 women of reproductive age (15-49 years)
+Study Design: Cross-sectional survey analysis
+Analytical Framework: Ecological model (individual, relationship, community)
+Methods: Multi-method approach (descriptive, machine learning, causal inference)
+
+KEY FINDINGS
+1. PREVALENCE (Phase 1 - Descriptive Epidemiology)
+   Overall GBV prevalence: 27.0%
+    Prevalence varies significantly by demographic subgroups
+   Higher burden in vulnerable populations
+
+2. PREDICTIVE FACTORS (Phase 2 - Machine Learning)
+   Random Forest model accuracy: 74.7%
+  Model discrimination (AUC): 0.711
+ Top 3 predictors:
+     1. partner_alcohol
+     2. childhood_trauma
+     3. community_patriarchy
+
+3. CAUSAL RISK FACTORS (Phase 3 - Logistic Regression)
+   Ecological model provides best fit (multi-level factors matter)
+   Strongest independent risk factors (adjusted):
+      partner_alcohol: OR = 6.63 (95% CI: 5.52-7.98)
+      childhood_trauma: OR = 1.98 (95% CI: 1.60-2.46)
+      marital_conflict: OR = 1.15 (95% CI: 1.10-1.21)
+
+4. CAUSAL PATHWAYS (Phase 4 - Mediation Analysis)
+    0 of 3 tested pathways showed significant mediation
+   No significant mediation pathways detected
+
+INTEGRATED CONCLUSIONS
+1. CONSENSUS RISK FACTORS (Across Multiple Methods):
+    Partner Alcohol Use (RF Rank: 1, OR: 6.63)
+    Childhood Trauma (RF Rank: 2, OR: 1.98)
+    Community Patriarchy (RF Rank: 3, OR: 1.08)
+    Marital Conflict (RF Rank: 4, OR: 1.15)
+
+STEP 0: All packages loaded.
+
+00_dgp_parameters.R loaded successfully.
+  Primary analysis: N = 3000, seed = 42
+  Key effect sizes: partner_alcohol OR ~ 6.0 | childhood_trauma OR ~ 2.23
+  generate_gbv_data() is now available.
+
+STEP 1: DGP loaded.
+Loading main N = 3,000 dataset...
+  Using data_sim already in environment (from Script 01)
+STEP 2: Data loaded.
+Main dataset loaded: N = 3000, GBV prevalence = 27.0%
+
+STEP 3: Pipeline function defined.
+
+-------------------------------------------------------
+  SCENARIO: N = 500
+-------------------------------------------------------
+
+GBV Prevalence: 25.8% (129 / 500)
+
+RF Accuracy:  75.2%  (Null classifier: 74.5%, Delta: +0.7 pp)
+Sensitivity:  34.2%  |  Specificity: 89.2%  |  F1: 0.413  |  AUC: 0.715
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  17.8%
+  3     Community Patriarchy               9.5%
+  4     Distance to Services               7.2%
+  5     Legal Implementation               5.8%
+  6     Age (centred)                      1.3%
+  7     Higher Wealth                      0.5%
+  8     childhood_trauma_factor            0.3%
+  9     Communication Score               -0.4%
+  10    Decision-Making Power             -3.0%
+  11    Mental Health Score               -4.4%
+  12    Higher Education                  -4.5%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               7.76  [ 4.86 -  12.59]   0.0000 *
+  Marital Conflict                  1.25  [ 1.12 -   1.41]   0.0002 *
+  Childhood Trauma                  1.10  [ 0.62 -   1.94]   0.7323  
+  Community Patriarchy              1.10  [ 0.99 -   1.22]   0.0853  
+  Mental Health Score               1.06  [ 0.94 -   1.19]   0.3250  
+  Communication Score               1.06  [ 0.96 -   1.17]   0.2713  
+  Higher Education                  1.01  [ 0.51 -   1.95]   0.9680  
+  Age (centred)                     0.99  [ 0.97 -   1.02]   0.6123  
+  Decision-Making Power             0.99  [ 0.90 -   1.09]   0.8692  
+  Distance to Services              0.98  [ 0.97 -   1.00]   0.0441 *
+  Legal Implementation              0.96  [ 0.84 -   1.09]   0.5252  
+  Higher Wealth                     0.73  [ 0.45 -   1.18]   0.2019  
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 1000
+-------------------------------------------------------
+
+GBV Prevalence: 25.5% (255 / 1000)
+
+RF Accuracy:  78.3%  (Null classifier: 74.6%, Delta: +3.7 pp)
+Sensitivity:  32.9%  |  Specificity: 93.7%  |  F1: 0.435  |  AUC: 0.732
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  14.0%
+  3     Mental Health Score                9.7%
+  4     childhood_trauma_factor            9.1%
+  5     Decision-Making Power              8.8%
+  6     Distance to Services               5.7%
+  7     Community Patriarchy               1.0%
+  8     Higher Education                  -1.3%
+  9     Age (centred)                     -1.5%
+  10    Communication Score               -3.0%
+  11    Legal Implementation              -4.2%
+  12    Higher Wealth                     -5.6%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               8.00  [ 5.72 -  11.30]   0.0000 *
+  Childhood Trauma                  1.72  [ 1.18 -   2.52]   0.0051 *
+  Higher Education                  1.42  [ 0.91 -   2.19]   0.1218  
+  Marital Conflict                  1.19  [ 1.10 -   1.30]   0.0000 *
+  Community Patriarchy              1.11  [ 1.05 -   1.18]   0.0003 *
+  Mental Health Score               1.09  [ 1.00 -   1.18]   0.0395 *
+  Distance to Services              0.99  [ 0.98 -   1.00]   0.1797  
+  Age (centred)                     0.99  [ 0.97 -   1.00]   0.1441  
+  Legal Implementation              0.98  [ 0.89 -   1.09]   0.7535  
+  Communication Score               0.96  [ 0.90 -   1.04]   0.3246  
+  Decision-Making Power             0.93  [ 0.87 -   0.99]   0.0360 *
+  Higher Wealth                     0.61  [ 0.44 -   0.85]   0.0043 *
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 5000
+-------------------------------------------------------
+
+GBV Prevalence: 24.7% (1237 / 5000)
+
+RF Accuracy:  76.5%  (Null classifier: 75.3%, Delta: +1.3 pp)
+Sensitivity:  30.2%  |  Specificity: 91.8%  |  F1: 0.389  |  AUC: 0.716
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           23.1%
+  3     Marital Conflict                  13.3%
+  4     Community Patriarchy              12.3%
+  5     Decision-Making Power              8.6%
+  6     Mental Health Score                7.0%
+  7     Legal Implementation               3.7%
+  8     Communication Score                1.6%
+  9     Age (centred)                      1.3%
+  10    Higher Wealth                     -0.5%
+  11    Distance to Services              -0.6%
+  12    Higher Education                  -1.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               5.52  [ 4.78 -   6.38]   0.0000 *
+  Childhood Trauma                  2.14  [ 1.81 -   2.54]   0.0000 *
+  Higher Education                  1.21  [ 0.99 -   1.47]   0.0613  
+  Marital Conflict                  1.14  [ 1.10 -   1.18]   0.0000 *
+  Community Patriarchy              1.11  [ 1.09 -   1.14]   0.0000 *
+  Communication Score               1.01  [ 0.98 -   1.04]   0.6857  
+  Distance to Services              1.00  [ 1.00 -   1.01]   0.5821  
+  Age (centred)                     1.00  [ 0.99 -   1.00]   0.4076  
+  Mental Health Score               0.99  [ 0.96 -   1.03]   0.6002  
+  Higher Wealth                     0.98  [ 0.85 -   1.14]   0.8309  
+  Legal Implementation              0.95  [ 0.91 -   0.99]   0.0063 *
+  Decision-Making Power             0.94  [ 0.91 -   0.96]   0.0000 *
+  * p < 0.05
+
+
+Running pipeline on N = 3,000 baseline (loaded from script 01 output)...
+
+-------------------------------------------------------
+  SCENARIO: N = 3000
+-------------------------------------------------------
+
+GBV Prevalence: 27.0% (809 / 3000)
+
+RF Accuracy:  74.3%  (Null classifier: 73.1%, Delta: +1.2 pp)
+Sensitivity:  35.5%  |  Specificity: 88.6%  |  F1: 0.427  |  AUC: 0.709
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           18.8%
+  3     Marital Conflict                  15.8%
+  4     Community Patriarchy              11.8%
+  5     Legal Implementation               8.1%
+  6     Distance to Services               5.9%
+  7     Decision-Making Power              5.9%
+  8     Higher Wealth                      5.7%
+  9     Age (centred)                      2.2%
+  10    Mental Health Score                1.5%
+  11    Communication Score                1.0%
+  12    Higher Education                  -2.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               6.58  [ 5.49 -   7.92]   0.0000 *
+  Childhood Trauma                  1.98  [ 1.59 -   2.46]   0.0000 *
+  Marital Conflict                  1.15  [ 1.10 -   1.21]   0.0000 *
+  Community Patriarchy              1.08  [ 1.05 -   1.11]   0.0000 *
+  Distance to Services              1.00  [ 0.99 -   1.01]   0.8154  
+  Age (centred)                     1.00  [ 0.99 -   1.01]   0.6418  
+  Communication Score               0.99  [ 0.95 -   1.03]   0.4697  
+  Mental Health Score               0.98  [ 0.94 -   1.03]   0.4462  
+  Decision-Making Power             0.96  [ 0.92 -   0.99]   0.0190 *
+  Legal Implementation              0.94  [ 0.89 -   0.98]   0.0094 *
+  Higher Wealth                     0.92  [ 0.77 -   1.11]   0.3963  
+  Higher Education                  0.81  [ 0.62 -   1.06]   0.1242  
+  * p < 0.05
+
+
+ ================================================================= 
+  CROSS-SCENARIO COMPARISON
+================================================================= 
+
+6a. RF Performance (N = 3,000 is the main analysis baseline)
+N            Accuracy   Baseline   Delta pp      Sens.      Spec.      AUC
+------------------------------------------------------------------------ 
+500             75.2%      74.5%       0.7 pp      34.2%      89.2%    0.715
+1000            78.3%      74.6%       3.7 pp      32.9%      93.7%    0.732
+3000            74.3%      73.1%       1.2 pp      35.5%      88.6%    0.709 <-- main
+5000            76.5%      75.3%       1.3 pp      30.2%      91.8%    0.716
+
+6b. Variable Importance Rank Stability
+Variable                            N=500   N=1000    N=3000*   N=5000
+-------------------------------------------------------------------- 
+partner_alcohol_factor                  1        1          1        1
+childhood_trauma_factor                 8        4          2        2
+Marital Conflict                        2        2          3        3
+Community Patriarchy                    3        7          4        4
+Legal Implementation                    5       11          5        7
+Distance to Services                    4        6          6       11
+Decision-Making Power                  10        5          7        5
+Higher Wealth                           7       12          8       10
+Age (centred)                           6        9          9        9
+Mental Health Score                    11        3         10        6
+Communication Score                     9       10         11        8
+Higher Education                       12        8         12       12
+* N = 3,000 is the main analysis
+
+6c. Adjusted OR Stability for Key Predictors
+Variable                        N=500                  N=1000                 N=3000 (main)          N=5000                
+---------------------------------------------------------------------------------------------------- 
+Partner Alcohol Use             7.76 [4.86-12.59]*    8.00 [5.72-11.30]*    6.58 [5.49-7.92]*     5.52 [4.78-6.38]*      
+Childhood Trauma                1.10 [0.62-1.94]      1.72 [1.18-2.52]*     1.98 [1.59-2.46]*     2.14 [1.81-2.54]*      
+Marital Conflict                1.25 [1.12-1.41]*     1.19 [1.10-1.30]*     1.15 [1.10-1.21]*     1.14 [1.10-1.18]*      
+Community Patriarchy            1.10 [0.99-1.22]      1.11 [1.05-1.18]*     1.08 [1.05-1.11]*     1.11 [1.09-1.14]*      
+Higher Education                1.01 [0.51-1.95]      1.42 [0.91-2.19]      0.81 [0.62-1.06]      1.21 [0.99-1.47]       
+Decision-Making Power           0.99 [0.90-1.09]      0.93 [0.87-0.99]*     0.96 [0.92-0.99]*     0.94 [0.91-0.96]*      
+Legal Implementation            0.96 [0.84-1.09]      0.98 [0.89-1.09]      0.94 [0.89-0.98]*     0.95 [0.91-0.99]*      
+* p < 0.05
+
+Generating Figure S1...
+Figure S1 saved to figures/phase6_sensitivity_analysis.png
+
+Output tables saved:
+  outputs/phase6_rf_performance_by_n.csv
+  outputs/phase6_importance_ranks_by_n.csv
+  outputs/phase6_logistic_or_by_n.csv
+
+================================================================= 
+  Phase 6 Sensitivity Analysis COMPLETE
+================================================================= 
+STEP 0: All packages loaded.
+
+00_dgp_parameters.R loaded successfully.
+  Primary analysis: N = 3000, seed = 42
+  Key effect sizes: partner_alcohol OR ~ 6.0 | childhood_trauma OR ~ 2.23
+  generate_gbv_data() is now available.
+
+STEP 1: DGP loaded.
+Loading main N = 3,000 dataset...
+  Using data_sim already in environment (from Script 01)
+STEP 2: Data loaded.
+Main dataset loaded: N = 3000, GBV prevalence = 27.0%
+
+STEP 3: Pipeline function defined.
+
+-------------------------------------------------------
+  SCENARIO: N = 500
+-------------------------------------------------------
+
+GBV Prevalence: 25.8% (129 / 500)
+
+RF Accuracy:  75.2%  (Null classifier: 74.5%, Delta: +0.7 pp)
+Sensitivity:  34.2%  |  Specificity: 89.2%  |  F1: 0.413  |  AUC: 0.715
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  17.8%
+  3     Community Patriarchy               9.5%
+  4     Distance to Services               7.2%
+  5     Legal Implementation               5.8%
+  6     Age (centred)                      1.3%
+  7     Higher Wealth                      0.5%
+  8     childhood_trauma_factor            0.3%
+  9     Communication Score               -0.4%
+  10    Decision-Making Power             -3.0%
+  11    Mental Health Score               -4.4%
+  12    Higher Education                  -4.5%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               7.76  [ 4.86 -  12.59]   0.0000 *
+  Marital Conflict                  1.25  [ 1.12 -   1.41]   0.0002 *
+  Childhood Trauma                  1.10  [ 0.62 -   1.94]   0.7323  
+  Community Patriarchy              1.10  [ 0.99 -   1.22]   0.0853  
+  Mental Health Score               1.06  [ 0.94 -   1.19]   0.3250  
+  Communication Score               1.06  [ 0.96 -   1.17]   0.2713  
+  Higher Education                  1.01  [ 0.51 -   1.95]   0.9680  
+  Age (centred)                     0.99  [ 0.97 -   1.02]   0.6123  
+  Decision-Making Power             0.99  [ 0.90 -   1.09]   0.8692  
+  Distance to Services              0.98  [ 0.97 -   1.00]   0.0441 *
+  Legal Implementation              0.96  [ 0.84 -   1.09]   0.5252  
+  Higher Wealth                     0.73  [ 0.45 -   1.18]   0.2019  
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 1000
+-------------------------------------------------------
+
+GBV Prevalence: 25.5% (255 / 1000)
+
+RF Accuracy:  78.3%  (Null classifier: 74.6%, Delta: +3.7 pp)
+Sensitivity:  32.9%  |  Specificity: 93.7%  |  F1: 0.435  |  AUC: 0.732
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  14.0%
+  3     Mental Health Score                9.7%
+  4     childhood_trauma_factor            9.1%
+  5     Decision-Making Power              8.8%
+  6     Distance to Services               5.7%
+  7     Community Patriarchy               1.0%
+  8     Higher Education                  -1.3%
+  9     Age (centred)                     -1.5%
+  10    Communication Score               -3.0%
+  11    Legal Implementation              -4.2%
+  12    Higher Wealth                     -5.6%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               8.00  [ 5.72 -  11.30]   0.0000 *
+  Childhood Trauma                  1.72  [ 1.18 -   2.52]   0.0051 *
+  Higher Education                  1.42  [ 0.91 -   2.19]   0.1218  
+  Marital Conflict                  1.19  [ 1.10 -   1.30]   0.0000 *
+  Community Patriarchy              1.11  [ 1.05 -   1.18]   0.0003 *
+  Mental Health Score               1.09  [ 1.00 -   1.18]   0.0395 *
+  Distance to Services              0.99  [ 0.98 -   1.00]   0.1797  
+  Age (centred)                     0.99  [ 0.97 -   1.00]   0.1441  
+  Legal Implementation              0.98  [ 0.89 -   1.09]   0.7535  
+  Communication Score               0.96  [ 0.90 -   1.04]   0.3246  
+  Decision-Making Power             0.93  [ 0.87 -   0.99]   0.0360 *
+  Higher Wealth                     0.61  [ 0.44 -   0.85]   0.0043 *
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 5000
+-------------------------------------------------------
+
+GBV Prevalence: 24.7% (1237 / 5000)
+
+RF Accuracy:  76.5%  (Null classifier: 75.3%, Delta: +1.3 pp)
+Sensitivity:  30.2%  |  Specificity: 91.8%  |  F1: 0.389  |  AUC: 0.716
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           23.1%
+  3     Marital Conflict                  13.3%
+  4     Community Patriarchy              12.3%
+  5     Decision-Making Power              8.6%
+  6     Mental Health Score                7.0%
+  7     Legal Implementation               3.7%
+  8     Communication Score                1.6%
+  9     Age (centred)                      1.3%
+  10    Higher Wealth                     -0.5%
+  11    Distance to Services              -0.6%
+  12    Higher Education                  -1.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               5.52  [ 4.78 -   6.38]   0.0000 *
+  Childhood Trauma                  2.14  [ 1.81 -   2.54]   0.0000 *
+  Higher Education                  1.21  [ 0.99 -   1.47]   0.0613  
+  Marital Conflict                  1.14  [ 1.10 -   1.18]   0.0000 *
+  Community Patriarchy              1.11  [ 1.09 -   1.14]   0.0000 *
+  Communication Score               1.01  [ 0.98 -   1.04]   0.6857  
+  Distance to Services              1.00  [ 1.00 -   1.01]   0.5821  
+  Age (centred)                     1.00  [ 0.99 -   1.00]   0.4076  
+  Mental Health Score               0.99  [ 0.96 -   1.03]   0.6002  
+  Higher Wealth                     0.98  [ 0.85 -   1.14]   0.8309  
+  Legal Implementation              0.95  [ 0.91 -   0.99]   0.0063 *
+  Decision-Making Power             0.94  [ 0.91 -   0.96]   0.0000 *
+  * p < 0.05
+
+
+Running pipeline on N = 3,000 baseline (loaded from script 01 output)...
+
+-------------------------------------------------------
+  SCENARIO: N = 3000
+-------------------------------------------------------
+
+GBV Prevalence: 27.0% (809 / 3000)
+
+RF Accuracy:  74.3%  (Null classifier: 73.1%, Delta: +1.2 pp)
+Sensitivity:  35.5%  |  Specificity: 88.6%  |  F1: 0.427  |  AUC: 0.709
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           18.8%
+  3     Marital Conflict                  15.8%
+  4     Community Patriarchy              11.8%
+  5     Legal Implementation               8.1%
+  6     Distance to Services               5.9%
+  7     Decision-Making Power              5.9%
+  8     Higher Wealth                      5.7%
+  9     Age (centred)                      2.2%
+  10    Mental Health Score                1.5%
+  11    Communication Score                1.0%
+  12    Higher Education                  -2.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               6.58  [ 5.49 -   7.92]   0.0000 *
+  Childhood Trauma                  1.98  [ 1.59 -   2.46]   0.0000 *
+  Marital Conflict                  1.15  [ 1.10 -   1.21]   0.0000 *
+  Community Patriarchy              1.08  [ 1.05 -   1.11]   0.0000 *
+  Distance to Services              1.00  [ 0.99 -   1.01]   0.8154  
+  Age (centred)                     1.00  [ 0.99 -   1.01]   0.6418  
+  Communication Score               0.99  [ 0.95 -   1.03]   0.4697  
+  Mental Health Score               0.98  [ 0.94 -   1.03]   0.4462  
+  Decision-Making Power             0.96  [ 0.92 -   0.99]   0.0190 *
+  Legal Implementation              0.94  [ 0.89 -   0.98]   0.0094 *
+  Higher Wealth                     0.92  [ 0.77 -   1.11]   0.3963  
+  Higher Education                  0.81  [ 0.62 -   1.06]   0.1242  
+  * p < 0.05
+
+
+ ================================================================= 
+  CROSS-SCENARIO COMPARISON
+================================================================= 
+
+6a. RF Performance (N = 3,000 is the main analysis baseline)
+N            Accuracy   Baseline   Delta pp      Sens.      Spec.      AUC
+------------------------------------------------------------------------ 
+500             75.2%      74.5%       0.7 pp      34.2%      89.2%    0.715
+1000            78.3%      74.6%       3.7 pp      32.9%      93.7%    0.732
+3000            74.3%      73.1%       1.2 pp      35.5%      88.6%    0.709 <-- main
+5000            76.5%      75.3%       1.3 pp      30.2%      91.8%    0.716
+
+6b. Variable Importance Rank Stability
+Variable                            N=500   N=1000    N=3000*   N=5000
+-------------------------------------------------------------------- 
+partner_alcohol_factor                  1        1          1        1
+childhood_trauma_factor                 8        4          2        2
+Marital Conflict                        2        2          3        3
+Community Patriarchy                    3        7          4        4
+Legal Implementation                    5       11          5        7
+Distance to Services                    4        6          6       11
+Decision-Making Power                  10        5          7        5
+Higher Wealth                           7       12          8       10
+Age (centred)                           6        9          9        9
+Mental Health Score                    11        3         10        6
+Communication Score                     9       10         11        8
+Higher Education                       12        8         12       12
+* N = 3,000 is the main analysis
+
+6c. Adjusted OR Stability for Key Predictors
+Variable                        N=500                  N=1000                 N=3000 (main)          N=5000                
+---------------------------------------------------------------------------------------------------- 
+Partner Alcohol Use             7.76 [4.86-12.59]*    8.00 [5.72-11.30]*    6.58 [5.49-7.92]*     5.52 [4.78-6.38]*      
+Childhood Trauma                1.10 [0.62-1.94]      1.72 [1.18-2.52]*     1.98 [1.59-2.46]*     2.14 [1.81-2.54]*      
+Marital Conflict                1.25 [1.12-1.41]*     1.19 [1.10-1.30]*     1.15 [1.10-1.21]*     1.14 [1.10-1.18]*      
+Community Patriarchy            1.10 [0.99-1.22]      1.11 [1.05-1.18]*     1.08 [1.05-1.11]*     1.11 [1.09-1.14]*      
+Higher Education                1.01 [0.51-1.95]      1.42 [0.91-2.19]      0.81 [0.62-1.06]      1.21 [0.99-1.47]       
+Decision-Making Power           0.99 [0.90-1.09]      0.93 [0.87-0.99]*     0.96 [0.92-0.99]*     0.94 [0.91-0.96]*      
+Legal Implementation            0.96 [0.84-1.09]      0.98 [0.89-1.09]      0.94 [0.89-0.98]*     0.95 [0.91-0.99]*      
+* p < 0.05
+
+Generating Figure S1...
+Figure S1 saved to figures/phase6_sensitivity_analysis.png
+
+Output tables saved:
+  outputs/phase6_rf_performance_by_n.csv
+  outputs/phase6_importance_ranks_by_n.csv
+  outputs/phase6_logistic_or_by_n.csv
+
+================================================================= 
+  Phase 6 Sensitivity Analysis COMPLETE
+================================================================= 
+=== SCRIPT 06 STARTING ===
+==== Script 06 starting ====
+STEP 0: All packages loaded.
+
+00_dgp_parameters.R loaded successfully.
+  Primary analysis: N = 3000, seed = 42
+  Key effect sizes: partner_alcohol OR ~ 6.0 | childhood_trauma OR ~ 2.23
+  generate_gbv_data() is now available.
+
+STEP 1: DGP loaded.
+Loading main N = 3,000 dataset...
+  Using data_sim already in environment (from Script 01)
+STEP 2: Data loaded.
+Main dataset loaded: N = 3000, GBV prevalence = 27.0%
+
+STEP 3: Pipeline function defined.
+
+-------------------------------------------------------
+  SCENARIO: N = 500
+-------------------------------------------------------
+
+GBV Prevalence: 25.8% (129 / 500)
+
+RF Accuracy:  75.2%  (Null classifier: 74.5%, Delta: +0.7 pp)
+Sensitivity:  34.2%  |  Specificity: 89.2%  |  F1: 0.413  |  AUC: 0.715
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  17.8%
+  3     Community Patriarchy               9.5%
+  4     Distance to Services               7.2%
+  5     Legal Implementation               5.8%
+  6     Age (centred)                      1.3%
+  7     Higher Wealth                      0.5%
+  8     childhood_trauma_factor            0.3%
+  9     Communication Score               -0.4%
+  10    Decision-Making Power             -3.0%
+  11    Mental Health Score               -4.4%
+  12    Higher Education                  -4.5%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               7.76  [ 4.86 -  12.59]   0.0000 *
+  Marital Conflict                  1.25  [ 1.12 -   1.41]   0.0002 *
+  Childhood Trauma                  1.10  [ 0.62 -   1.94]   0.7323  
+  Community Patriarchy              1.10  [ 0.99 -   1.22]   0.0853  
+  Mental Health Score               1.06  [ 0.94 -   1.19]   0.3250  
+  Communication Score               1.06  [ 0.96 -   1.17]   0.2713  
+  Higher Education                  1.01  [ 0.51 -   1.95]   0.9680  
+  Age (centred)                     0.99  [ 0.97 -   1.02]   0.6123  
+  Decision-Making Power             0.99  [ 0.90 -   1.09]   0.8692  
+  Distance to Services              0.98  [ 0.97 -   1.00]   0.0441 *
+  Legal Implementation              0.96  [ 0.84 -   1.09]   0.5252  
+  Higher Wealth                     0.73  [ 0.45 -   1.18]   0.2019  
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 1000
+-------------------------------------------------------
+
+GBV Prevalence: 25.5% (255 / 1000)
+
+RF Accuracy:  78.3%  (Null classifier: 74.6%, Delta: +3.7 pp)
+Sensitivity:  32.9%  |  Specificity: 93.7%  |  F1: 0.435  |  AUC: 0.732
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     Marital Conflict                  14.0%
+  3     Mental Health Score                9.7%
+  4     childhood_trauma_factor            9.1%
+  5     Decision-Making Power              8.8%
+  6     Distance to Services               5.7%
+  7     Community Patriarchy               1.0%
+  8     Higher Education                  -1.3%
+  9     Age (centred)                     -1.5%
+  10    Communication Score               -3.0%
+  11    Legal Implementation              -4.2%
+  12    Higher Wealth                     -5.6%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               8.00  [ 5.72 -  11.30]   0.0000 *
+  Childhood Trauma                  1.72  [ 1.18 -   2.52]   0.0051 *
+  Higher Education                  1.42  [ 0.91 -   2.19]   0.1218  
+  Marital Conflict                  1.19  [ 1.10 -   1.30]   0.0000 *
+  Community Patriarchy              1.11  [ 1.05 -   1.18]   0.0003 *
+  Mental Health Score               1.09  [ 1.00 -   1.18]   0.0395 *
+  Distance to Services              0.99  [ 0.98 -   1.00]   0.1797  
+  Age (centred)                     0.99  [ 0.97 -   1.00]   0.1441  
+  Legal Implementation              0.98  [ 0.89 -   1.09]   0.7535  
+  Communication Score               0.96  [ 0.90 -   1.04]   0.3246  
+  Decision-Making Power             0.93  [ 0.87 -   0.99]   0.0360 *
+  Higher Wealth                     0.61  [ 0.44 -   0.85]   0.0043 *
+  * p < 0.05
+
+
+-------------------------------------------------------
+  SCENARIO: N = 5000
+-------------------------------------------------------
+
+GBV Prevalence: 24.7% (1237 / 5000)
+
+RF Accuracy:  76.5%  (Null classifier: 75.3%, Delta: +1.3 pp)
+Sensitivity:  30.2%  |  Specificity: 91.8%  |  F1: 0.389  |  AUC: 0.716
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           23.1%
+  3     Marital Conflict                  13.3%
+  4     Community Patriarchy              12.3%
+  5     Decision-Making Power              8.6%
+  6     Mental Health Score                7.0%
+  7     Legal Implementation               3.7%
+  8     Communication Score                1.6%
+  9     Age (centred)                      1.3%
+  10    Higher Wealth                     -0.5%
+  11    Distance to Services              -0.6%
+  12    Higher Education                  -1.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               5.52  [ 4.78 -   6.38]   0.0000 *
+  Childhood Trauma                  2.14  [ 1.81 -   2.54]   0.0000 *
+  Higher Education                  1.21  [ 0.99 -   1.47]   0.0613  
+  Marital Conflict                  1.14  [ 1.10 -   1.18]   0.0000 *
+  Community Patriarchy              1.11  [ 1.09 -   1.14]   0.0000 *
+  Communication Score               1.01  [ 0.98 -   1.04]   0.6857  
+  Distance to Services              1.00  [ 1.00 -   1.01]   0.5821  
+  Age (centred)                     1.00  [ 0.99 -   1.00]   0.4076  
+  Mental Health Score               0.99  [ 0.96 -   1.03]   0.6002  
+  Higher Wealth                     0.98  [ 0.85 -   1.14]   0.8309  
+  Legal Implementation              0.95  [ 0.91 -   0.99]   0.0063 *
+  Decision-Making Power             0.94  [ 0.91 -   0.96]   0.0000 *
+  * p < 0.05
+
+
+Running pipeline on N = 3,000 baseline (loaded from script 01 output)...
+
+-------------------------------------------------------
+  SCENARIO: N = 3000
+-------------------------------------------------------
+
+GBV Prevalence: 27.0% (809 / 3000)
+
+RF Accuracy:  74.3%  (Null classifier: 73.1%, Delta: +1.2 pp)
+Sensitivity:  35.5%  |  Specificity: 88.6%  |  F1: 0.427  |  AUC: 0.709
+
+Variable Importance (MDA):
+  Rank  Variable                       Relative%
+  1     partner_alcohol_factor           100.0%
+  2     childhood_trauma_factor           18.8%
+  3     Marital Conflict                  15.8%
+  4     Community Patriarchy              11.8%
+  5     Legal Implementation               8.1%
+  6     Distance to Services               5.9%
+  7     Decision-Making Power              5.9%
+  8     Higher Wealth                      5.7%
+  9     Age (centred)                      2.2%
+  10    Mental Health Score                1.5%
+  11    Communication Score                1.0%
+  12    Higher Education                  -2.2%
+
+Logistic Regression -- Adjusted ORs:
+  Variable                           aOR  95% CI                  p
+  Partner Alcohol Use               6.58  [ 5.49 -   7.92]   0.0000 *
+  Childhood Trauma                  1.98  [ 1.59 -   2.46]   0.0000 *
+  Marital Conflict                  1.15  [ 1.10 -   1.21]   0.0000 *
+  Community Patriarchy              1.08  [ 1.05 -   1.11]   0.0000 *
+  Distance to Services              1.00  [ 0.99 -   1.01]   0.8154  
+  Age (centred)                     1.00  [ 0.99 -   1.01]   0.6418  
+  Communication Score               0.99  [ 0.95 -   1.03]   0.4697  
+  Mental Health Score               0.98  [ 0.94 -   1.03]   0.4462  
+  Decision-Making Power             0.96  [ 0.92 -   0.99]   0.0190 *
+  Legal Implementation              0.94  [ 0.89 -   0.98]   0.0094 *
+  Higher Wealth                     0.92  [ 0.77 -   1.11]   0.3963  
+  Higher Education                  0.81  [ 0.62 -   1.06]   0.1242  
+  * p < 0.05
+
+
+ ================================================================= 
+  CROSS-SCENARIO COMPARISON
+================================================================= 
+
+6a. RF Performance (N = 3,000 is the main analysis baseline)
+N            Accuracy   Baseline   Delta pp      Sens.      Spec.      AUC
+------------------------------------------------------------------------ 
+500             75.2%      74.5%       0.7 pp      34.2%      89.2%    0.715
+1000            78.3%      74.6%       3.7 pp      32.9%      93.7%    0.732
+3000            74.3%      73.1%       1.2 pp      35.5%      88.6%    0.709 <-- main
+5000            76.5%      75.3%       1.3 pp      30.2%      91.8%    0.716
+
+6b. Variable Importance Rank Stability
+Variable                            N=500   N=1000    N=3000*   N=5000
+-------------------------------------------------------------------- 
+partner_alcohol_factor                  1        1          1        1
+childhood_trauma_factor                 8        4          2        2
+Marital Conflict                        2        2          3        3
+Community Patriarchy                    3        7          4        4
+Legal Implementation                    5       11          5        7
+Distance to Services                    4        6          6       11
+Decision-Making Power                  10        5          7        5
+Higher Wealth                           7       12          8       10
+Age (centred)                           6        9          9        9
+Mental Health Score                    11        3         10        6
+Communication Score                     9       10         11        8
+Higher Education                       12        8         12       12
+* N = 3,000 is the main analysis
+
+6c. Adjusted OR Stability for Key Predictors
+Variable                        N=500                  N=1000                 N=3000 (main)          N=5000                
+---------------------------------------------------------------------------------------------------- 
+Partner Alcohol Use             7.76 [4.86-12.59]*    8.00 [5.72-11.30]*    6.58 [5.49-7.92]*     5.52 [4.78-6.38]*      
+Childhood Trauma                1.10 [0.62-1.94]      1.72 [1.18-2.52]*     1.98 [1.59-2.46]*     2.14 [1.81-2.54]*      
+Marital Conflict                1.25 [1.12-1.41]*     1.19 [1.10-1.30]*     1.15 [1.10-1.21]*     1.14 [1.10-1.18]*      
+Community Patriarchy            1.10 [0.99-1.22]      1.11 [1.05-1.18]*     1.08 [1.05-1.11]*     1.11 [1.09-1.14]*      
+Higher Education                1.01 [0.51-1.95]      1.42 [0.91-2.19]      0.81 [0.62-1.06]      1.21 [0.99-1.47]       
+Decision-Making Power           0.99 [0.90-1.09]      0.93 [0.87-0.99]*     0.96 [0.92-0.99]*     0.94 [0.91-0.96]*      
+Legal Implementation            0.96 [0.84-1.09]      0.98 [0.89-1.09]      0.94 [0.89-0.98]*     0.95 [0.91-0.99]*      
+* p < 0.05
+
+Generating Figure S1...
+Figure S1 saved to figures/phase6_sensitivity_analysis.png
+
+Output tables saved:
+  outputs/phase6_rf_performance_by_n.csv
+  outputs/phase6_importance_ranks_by_n.csv
+  outputs/phase6_logistic_or_by_n.csv
+
+================================================================= 
+  Phase 6 Sensitivity Analysis COMPLETE
+================================================================= 

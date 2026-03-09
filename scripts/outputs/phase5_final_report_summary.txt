@@ -1,0 +1,28 @@
+GBV EPIDEMIOLOGICAL ANALYSIS - FINAL REPORT SUMMARY
+STUDY OVERVIEW:
+Sample Size: 3000 women
+GBV Prevalence: 27 %
+Analysis Period: March 09, 2026 
+
+KEY INTEGRATED FINDINGS:
+Phase 1: Descriptive :
+   GBV Prevalence: 27.0% 
+  Method: Cross-sectional survey analysis 
+
+Phase 2: Random Forest :
+   Model Accuracy: 74.7% | Top Predictor: partner_alcohol 
+  Method: Machine Learning (500 trees, 70/30 split) 
+
+Phase 3: Logistic Regression :
+   Strongest Risk Factor: partner_alcohol (OR = 6.63) 
+  Method: Multivariable logistic regression (ecological model) 
+
+Phase 4: Mediation Analysis :
+   Significant Pathways: 0 of 3 tested 
+  Method: Mediation analysis with bootstrap (1000 sims) 
+
+CONSENSUS RISK FACTORS (Both Predictive and Causal):
+   Partner Alcohol Use (RF Rank: 1, OR: 6.63)
+   Childhood Trauma (RF Rank: 2, OR: 1.98)
+   Community Patriarchy (RF Rank: 3, OR: 1.08)
+   Marital Conflict (RF Rank: 4, OR: 1.15)

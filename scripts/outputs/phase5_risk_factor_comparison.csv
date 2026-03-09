@@ -1,0 +1,7 @@
+"Risk_Factor","RF_Rank","RF_Importance","OR","OR_pvalue","OR_sig","Consensus"
+"Partner Alcohol Use",1,72.7026270954815,6.63270701029039,1.64186862874968e-90,"***","Strong Risk (Both)"
+"Childhood Trauma",2,12.1257241719764,1.98205359386904,6.62452935961049e-10,"***","Strong Risk (Both)"
+"Community Patriarchy",3,8.13907852766642,1.07929196909857,1.0642732607043e-06,"***","Strong Risk (Both)"
+"Marital Conflict",4,7.29821514968881,1.152279721425,3.4746724891791e-09,"***","Strong Risk (Both)"
+"Decision Power",6,3.92029185262957,0.956310474334383,0.0162261629192042,"*","Causal Only"
+"Mental Health",13,-1.5938627128849,0.983518502650087,0.479532463926551,"NS","Limited Evidence"

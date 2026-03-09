@@ -1,0 +1,14 @@
+"Variable","MeanDecreaseAccuracy","Rank","Relative_Importance"
+"partner_alcohol",72.7026270954815,1,100
+"childhood_trauma",12.1257241719764,2,16.7
+"community_patriarchy",8.13907852766642,3,11.2
+"marital_conflict",7.29821514968881,4,10
+"education",4.07845402230691,5,5.6
+"decision_power",3.92029185262957,6,5.4
+"legal_implementation",3.3299587566933,7,4.6
+"residence",2.78144278598465,8,3.8
+"communication_score",2.02691941038597,9,2.8
+"distance_to_services",1.47933800128009,10,2
+"wealth_quintile",-0.0578097833763101,11,-0.1
+"age",-1.31961474471789,12,-1.8
+"mental_health_score",-1.5938627128849,13,-2.2
