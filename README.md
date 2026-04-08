@@ -159,7 +159,7 @@ Parameters. BMC Medical Research Methodology [Under Review].
 
 **Grold Otieno Mboya**
 School of Health Sciences, Jaramogi Oginga Odinga University of Science and Technology (JOOUST), Bondo, Kenya
-✉️ groldotieno97@gmail.com
+✉️ gmotieno@jooust.ac.ke
 
 ---
 
