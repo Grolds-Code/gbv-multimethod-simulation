@@ -1,7 +1,7 @@
 # An Integrated Multi-Method Framework for Gender-Based Violence Research
 ### A Synthetic Data Demonstration Using Kenya Demographic and Health Survey Parameters
 
-[![R Version](https://img.shields.io/badge/R-%3E%3D4.5.2-blue)](https://www.r-project.org/)
+![R](https://img.shields.io/badge/R-%23276DC3.svg?style=for-the-badge&logo=r&logoColor=white)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: Under Review](https://img.shields.io/badge/Status-Under%20Review-orange)](https://github.com/Grolds-Code/gbv-multimethod-simulation)
 
